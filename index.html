@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Zhang — AI/ML Engineer</title>
+  <meta name="description" content="John Zhang — aspiring AI/ML Engineer. Builder of AutoML Agent, a multi-agent system that turns natural language into trained ML models." />
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#top" class="logo">JZ<span class="logo-dot">.</span></a>
+      <div class="nav-links">
+        <a href="#project">Project</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/ycz425" target="_blank" rel="noopener" class="nav-cta">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="top" class="hero container">
+      <p class="eyebrow">// Machine Learning Analyst → AI/ML Engineer</p>
+      <h1>Hi, I'm <span class="accent">John Zhang</span>.</h1>
+      <p class="hero-sub">
+        I've worked as a Machine Learning Analyst at <strong>Sunnybrook Research Institute</strong>, analyzing health data
+        and building models to predict patient outcomes and diagnoses. Right now I'm deep into <strong>AutoML Agent</strong>,
+        combining that ML background with agentic systems that plan, act, and train models on their own.
+      </p>
+      <div class="hero-actions">
+        <a href="https://automl-504220.web.app/" target="_blank" rel="noopener" class="btn btn-primary">Try the live app</a>
+        <a href="#project" class="btn btn-ghost">See the project</a>
+        <a href="mailto:23zhanyuc@gmail.com" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </section>
+
+    <!-- PROJECT -->
+    <section id="project" class="section container">
+      <h2 class="section-title"><span class="section-index">01</span> Featured Project</h2>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <h3>AutoML Agent</h3>
+            <p class="project-tagline">Describe an ML task in plain English. A team of LLM agents plans it, runs it, and ships you a trained model.</p>
+          </div>
+          <div class="project-links">
+            <a href="https://automl-504220.web.app/" target="_blank" rel="noopener" class="btn btn-small btn-small-primary">
+              Live Demo
+            </a>
+            <a href="https://github.com/ycz425/automl" target="_blank" rel="noopener" class="btn btn-small">
+              View Source
+            </a>
+          </div>
+        </div>
+
+        <p class="project-desc">
+          AutoML Agent is a full-stack, multi-agent system that automates the machine learning workflow end to end.
+          A user uploads a dataset and states a goal in natural language; a graph of specialized LLM agents
+          clarifies the request, analyzes the data, drafts an experiment plan, generates and repairs model code,
+          and reports results back — with no manual feature engineering or model selection required.
+        </p>
+
+        <div class="project-grid">
+          <div class="project-feature">
+            <h4>Multi-agent orchestration</h4>
+            <p>A <strong>LangGraph</strong> state machine coordinates six specialized agents — clarification, data analysis,
+              planning, prompting, experimentation, and output — each with a narrow responsibility and a typed
+              handoff to the next.</p>
+          </div>
+          <div class="project-feature">
+            <h4>Self-repairing experiments</h4>
+            <p>Generated training code is library-agnostic — the agent picks whatever Python ML libraries fit the
+              task, installs them in an isolated environment, and automatically repairs failures instead of
+              dead-ending.</p>
+          </div>
+          <div class="project-feature">
+            <h4>Production ML lifecycle</h4>
+            <p>Beyond training: served predictions, <strong>drift monitoring</strong> on live predictions via
+              Evidently, and a one-click <strong>retrain</strong> flow when performance degrades.</p>
+          </div>
+          <div class="project-feature">
+            <h4>Evals & observability</h4>
+            <p>Every agent has a <strong>LangSmith</strong> eval suite wired into CI, plus full tracing —
+              so regressions in agent behavior get caught before they ship.</p>
+          </div>
+          <div class="project-feature">
+            <h4>Deployed on GCP</h4>
+            <p>The backend runs on <strong>Cloud Run</strong>, with <strong>Cloud Storage</strong> and
+              <strong>Firestore</strong> handling persistence, and the frontend served through
+              <strong>Firebase Hosting</strong>.</p>
+          </div>
+        </div>
+
+        <div class="stack">
+          <span class="stack-label">Stack</span>
+          <ul class="tag-list">
+            <li>Python</li>
+            <li>LangGraph</li>
+            <li>LangSmith</li>
+            <li>Google Gemini</li>
+            <li>FastAPI</li>
+            <li>scikit-learn</li>
+            <li>Evidently</li>
+            <li>Docker</li>
+            <li>Google Cloud Run</li>
+            <li>Cloud Storage</li>
+            <li>Firestore</li>
+            <li>Firebase Hosting</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Tailwind CSS</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section container">
+      <h2 class="section-title"><span class="section-index">02</span> Skills</h2>
+      <p class="section-intro">Pulled from building AutoML Agent end to end — agent design down to deployment.</p>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>AI / Agents</h3>
+          <ul>
+            <li>LLM agent orchestration (LangGraph)</li>
+            <li>Prompt engineering & structured output</li>
+            <li>Evals & tracing (LangSmith)</li>
+            <li>Google Gemini API</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Machine Learning</h3>
+          <ul>
+            <li>Framework-agnostic model training</li>
+            <li>Automated experiment design</li>
+            <li>Prediction drift monitoring (Evidently)</li>
+            <li>Model retraining pipelines</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Backend & Cloud</h3>
+          <ul>
+            <li>Python / FastAPI</li>
+            <li>Google Cloud Run</li>
+            <li>Cloud Storage & Firestore</li>
+            <li>Docker</li>
+            <li>REST & streaming APIs (SSE)</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Frontend</h3>
+          <ul>
+            <li>React / TypeScript</li>
+            <li>Tailwind CSS</li>
+            <li>Vite</li>
+            <li>Firebase Hosting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container contact-section">
+      <h2 class="section-title"><span class="section-index">03</span> Contact</h2>
+      <p class="section-intro">
+        Open to AI/ML engineering roles and always happy to talk about agents, ML infra, or this project.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:23zhanyuc@gmail.com" class="contact-card">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">23zhanyuc@gmail.com</span>
+        </a>
+        <a href="https://github.com/ycz425" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/ycz425</span>
+        </a>
+        <a href="https://www.linkedin.com/in/johnyczhang/" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/johnyczhang</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> John Zhang</span>
+      <span class="footer-note">Built with HTML, CSS &amp; a little JS.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
