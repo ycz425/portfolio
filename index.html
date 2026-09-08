@@ -81,6 +81,13 @@
               typed handoff to the next.</p>
           </div>
           <div class="project-feature">
+            <h4>Research-grounded planning (RAG)</h4>
+            <p>A dedicated research agent embeds the request and dataset profile, retrieves relevant excerpts from a
+              <strong>Qdrant</strong> vector store, and grounds the planning agent's proposals throughout the
+              experimentation loop — fed by a standalone PDF ingestion pipeline that loads, chunks, embeds, and
+              upserts documents into the corpus.</p>
+          </div>
+          <div class="project-feature">
             <h4>Self-repairing experiments</h4>
             <p>Generated training code is library-agnostic — the agent picks whatever Python ML libraries fit the
               task, installs them in an isolated environment, and automatically repairs failures instead of
@@ -111,6 +118,7 @@
             <li>LangGraph</li>
             <li>LangSmith</li>
             <li>Google Gemini</li>
+            <li>Qdrant</li>
             <li>FastAPI</li>
             <li>scikit-learn</li>
             <li>Evidently</li>
@@ -137,6 +145,8 @@
           <h3>AI / Agents</h3>
           <ul>
             <li>LLM agent orchestration (LangGraph)</li>
+            <li>Retrieval-Augmented Generation (RAG)</li>
+            <li>Vector search & embeddings (Qdrant)</li>
             <li>Prompt engineering & structured output</li>
             <li>Evals & tracing (LangSmith)</li>
             <li>Google Gemini API</li>
