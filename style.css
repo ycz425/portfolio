@@ -199,6 +199,19 @@ a { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
 }
 
+.project-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.project-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
 .btn-small-primary {
   background: var(--accent);
   border-color: var(--accent);
