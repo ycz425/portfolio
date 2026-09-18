@@ -48,7 +48,7 @@
 
     <!-- PROJECT -->
     <section id="project" class="section container">
-      <h2 class="section-title"><span class="section-index">01</span> Featured Project</h2>
+      <h2 class="section-title"><span class="section-index">01</span> Projects</h2>
 
       <article class="project-card">
         <div class="project-head">
@@ -138,12 +138,72 @@
           </ul>
         </div>
       </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div class="project-title-row">
+            <div>
+              <h3>ToolOpt <span class="wip-badge">In Progress</span></h3>
+              <p class="project-tagline">A tool-use agent framework for generating teacher trajectories and distilling them into a small, fine-tuned local model.</p>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/ycz425/toolopt" target="_blank" rel="noopener" class="btn btn-small">
+              View Source
+            </a>
+          </div>
+        </div>
+
+        <p class="project-desc">
+          ToolOpt is a modular tool-use agent framework built to study distillation: a Gemini-backed teacher
+          agent solves tasks by selecting from 26 tools via structured JSON output, generating trajectories
+          that are then used to fine-tune a much smaller Qwen2.5 model to reproduce that tool-use behavior
+          directly.
+        </p>
+
+        <div class="project-grid">
+          <div class="project-feature">
+            <h4>Modular agent framework</h4>
+            <p>A typed <strong>Tool / Registry / Executor / Environment / Agent</strong> architecture, with
+              Pydantic enforcing structured, type-safe state through every layer — 26 tools spanning
+              calculation, data manipulation, files, and calendar operations.</p>
+          </div>
+          <div class="project-feature">
+            <h4>Teacher trajectory generation</h4>
+            <p>A <strong>Gemini</strong>-backed policy agent selects tool calls via structured JSON output;
+              every run's tool calls, results, and outcome are captured as a trajectory for distillation.</p>
+          </div>
+          <div class="project-feature">
+            <h4>LLM-as-judge evaluation</h4>
+            <p>A judge model scores task success by comparing final answers, alongside tool-selection
+              accuracy, argument accuracy, latency, and cost tracked per run.</p>
+          </div>
+          <div class="project-feature">
+            <h4>LoRA / QLoRA distillation</h4>
+            <p>Teacher trajectories fine-tune <strong>Qwen2.5</strong> via LoRA and 4-bit QLoRA (Hugging Face
+              PEFT + Transformers), with custom tokenization that masks the prompt so loss is computed only
+              on the completion.</p>
+          </div>
+        </div>
+
+        <div class="stack">
+          <span class="stack-label">Stack</span>
+          <ul class="tag-list">
+            <li>Python</li>
+            <li>Google Gemini</li>
+            <li>PyTorch</li>
+            <li>Hugging Face Transformers</li>
+            <li>PEFT (LoRA / QLoRA)</li>
+            <li>Pydantic</li>
+          </ul>
+        </div>
+      </article>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="section container">
       <h2 class="section-title"><span class="section-index">02</span> Skills</h2>
-      <p class="section-intro">Pulled from building AutoML Agent end to end — agent design down to deployment.</p>
+      <p class="section-intro">Pulled from building AutoML Agent and ToolOpt end to end — agent design, distillation, and deployment.</p>
 
       <div class="skills-grid">
         <div class="skill-group">
@@ -164,6 +224,10 @@
             <li>Automated experiment design</li>
             <li>Prediction drift monitoring (Evidently)</li>
             <li>Model retraining pipelines</li>
+            <li>LLM fine-tuning (LoRA / QLoRA)</li>
+            <li>Hugging Face Transformers & PEFT</li>
+            <li>Teacher-student model distillation</li>
+            <li>4-bit quantization (bitsandbytes)</li>
           </ul>
         </div>
         <div class="skill-group">
