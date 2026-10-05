@@ -487,3 +487,25 @@ a { color: inherit; text-decoration: none; }
 }
 
 .project-nav-link.active { background: rgba(94, 234, 212, 0.08); }
+
+@media (min-width: 1400px) {
+  .project-nav {
+    position: fixed;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .project-nav.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .project-nav-link { background: var(--bg); }
+  .project-nav-link.active { background: #0f2a2a; }
+}
