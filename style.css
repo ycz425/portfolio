@@ -451,3 +451,39 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 760px) {
   .result-strip { grid-template-columns: 1fr; }
 }
+
+.project-card { scroll-margin-top: 88px; }
+
+.project-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.project-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.project-nav-link img {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+}
+
+.project-nav-link:hover,
+.project-nav-link.active {
+  color: var(--text);
+  border-color: var(--accent-dim);
+}
+
+.project-nav-link.active { background: rgba(94, 234, 212, 0.08); }
