@@ -151,7 +151,7 @@
             <img src="toolopt-logo.png" alt="ToolOpt logo" class="project-logo" />
             <div>
               <h3>ToolOpt</h3>
-              <p class="project-tagline">Teaching a small LLM to use tools: a modular agent framework, a synthetic data pipeline, and LoRA fine-tuning of Qwen2.5-1.5B.</p>
+              <p class="project-tagline">Teaching a small LLM to use tools cost-effectively: a priced tool environment, synthetic SFT + DPO data, and LoRA fine-tuning of Qwen2.5-1.5B.</p>
             </div>
           </div>
           <div class="project-links">
@@ -162,50 +162,49 @@
         </div>
 
         <p class="project-desc">
-          ToolOpt fine-tunes a 1.5B-parameter model to pick the right tool calls on multi-step tasks. A synthetic
-          pipeline turns task templates into step-level training data, LoRA adapts the model on a single H100, and a
-          two-stage harness benchmarks it against the base model.
+          ToolOpt fine-tunes a 1.5B-parameter model to complete multi-step tasks with the right tool calls, and then
+          to pick the cheaper of several valid paths. A synthetic pipeline turns task templates into SFT
+          demonstrations and DPO preference pairs, LoRA SFT and DPO train the model on a single H100, and a two-stage
+          harness measures both success and spend.
         </p>
 
         <div class="result-strip">
           <div class="result">
             <span class="result-value">0% &rarr; 98%</span>
-            <span class="result-label">held-out task success</span>
+            <span class="result-label">held-out task success (SFT)</span>
           </div>
           <div class="result">
-            <span class="result-value">0.34 &rarr; 1.00</span>
-            <span class="result-label">tool-selection accuracy</span>
+            <span class="result-value">29% &rarr; 11%</span>
+            <span class="result-label">spend above cheapest valid path (DPO)</span>
           </div>
           <div class="result">
-            <span class="result-value">9.8 &rarr; 3.1</span>
-            <span class="result-label">tool calls per task</span>
+            <span class="result-value">&minus;5 pts</span>
+            <span class="result-label">success trade-off from DPO, traced in error analysis</span>
           </div>
         </div>
 
         <div class="project-grid">
           <div class="project-feature">
-            <h4>Modular agent framework</h4>
-            <p>A typed <strong>Tool / Registry / Executor / Environment / Agent</strong> architecture with
-              26 tools and <strong>Pydantic</strong>-typed state, in which an LLM selects multi-step tool calls
-              via structured JSON output.</p>
+            <h4>Cost-aware agent environment</h4>
+            <p>35 priced tools in 10 overlapping cost families (e.g. single vs. batch APIs), with
+              <strong>Pydantic</strong>-typed state. An LLM selects multi-step tool calls as structured JSON.</p>
           </div>
           <div class="project-feature">
             <h4>Synthetic data pipeline</h4>
-            <p>5K tasks from 33 templates and 247 phrasings, executed in the environment to produce 10.7K
-              step-level training examples, with versioned, leakage-free train/val/test splits grouped by
-              underlying task.</p>
+            <p>Executes every valid and invalid path of 7.7K tasks from 50 templates, producing 11K SFT
+              demonstrations and 2.8K step-level DPO preference pairs with leakage-free splits.</p>
           </div>
           <div class="project-feature">
-            <h4>LoRA fine-tuning</h4>
-            <p>Fine-tuned <strong>Qwen2.5-1.5B</strong> with LoRA (Hugging Face PEFT + Transformers) on an H100
-              via <strong>Slurm</strong>, training only on the action tokens. Results are on 450 unseen tasks
-              from the same templates.</p>
+            <h4>LoRA SFT, then DPO</h4>
+            <p>Fine-tuned <strong>Qwen2.5-1.5B</strong> with LoRA SFT, then DPO (<strong>TRL</strong>), on an H100
+              via <strong>Slurm</strong>. SFT took held-out task success from 0% to 98%; DPO cut overspending from
+              29% to 11%.</p>
           </div>
           <div class="project-feature">
-            <h4>Resumable evaluation harness</h4>
-            <p>Two stages: offline GPU inference, then <strong>LLM-as-judge</strong> scoring of success, tool and
-              argument accuracy, cost, and latency. Also debugged NaN gradients by isolating a faulty attention
-              kernel's backward pass.</p>
+            <h4>Evaluation &amp; error analysis</h4>
+            <p>A two-stage harness (GPU inference, then <strong>LLM-as-judge</strong>) with cost-efficiency
+              metrics. Error analysis traced DPO's 5-point success drop to imbalanced preference pairs and
+              unrecovered tool failures.</p>
           </div>
         </div>
 
@@ -216,6 +215,7 @@
             <li>PyTorch</li>
             <li>Hugging Face Transformers</li>
             <li>PEFT (LoRA)</li>
+            <li>TRL (DPO)</li>
             <li>Google Gemini</li>
             <li>Pydantic</li>
             <li>Slurm</li>
@@ -235,43 +235,42 @@
           <ul>
             <li>LLM agent orchestration (LangGraph)</li>
             <li>Retrieval-Augmented Generation (RAG)</li>
-            <li>Vector search & embeddings (Qdrant)</li>
-            <li>Prompt engineering & structured output</li>
-            <li>Evals & tracing (LangSmith)</li>
+            <li>Vector search &amp; embeddings (Qdrant)</li>
+            <li>Prompt engineering &amp; structured output</li>
+            <li>Tracing (LangSmith)</li>
             <li>Google Gemini API</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Machine Learning</h3>
           <ul>
-            <li>Framework-agnostic model training</li>
-            <li>Automated experiment design</li>
-            <li>Prediction drift monitoring (Evidently)</li>
-            <li>Model retraining pipelines</li>
-            <li>LLM fine-tuning (LoRA / QLoRA)</li>
-            <li>Hugging Face Transformers & PEFT</li>
-            <li>4-bit quantization (bitsandbytes)</li>
+            <li>PyTorch, TensorFlow, Keras, scikit-learn</li>
+            <li>Hugging Face (Transformers, PEFT, TRL)</li>
+            <li>LoRA / QLoRA fine-tuning</li>
+            <li>DPO preference optimization</li>
+            <li>LLM evaluation (LLM-as-judge, LangSmith)</li>
+            <li>Drift monitoring (Evidently)</li>
+            <li>TensorBoard</li>
           </ul>
         </div>
         <div class="skill-group">
-          <h3>Backend & Cloud</h3>
+          <h3>Data &amp; Cloud</h3>
           <ul>
-            <li>Python / FastAPI</li>
-            <li>Google Cloud Run</li>
-            <li>Cloud Storage & Firestore</li>
-            <li>Cloud Monitoring (custom metrics)</li>
-            <li>Docker</li>
-            <li>CI/CD (GitHub Actions)</li>
-            <li>REST & streaming APIs (SSE)</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Frontend</h3>
-          <ul>
-            <li>React / TypeScript</li>
-            <li>Tailwind CSS</li>
-            <li>Vite</li>
+            <li>NumPy, Pandas, SciPy</li>
+            <li>SQL</li>
+            <li>Signal processing</li>
+            <li>Google Cloud Platform (Cloud Run, Cloud Storage, Firestore, Cloud Monitoring)</li>
             <li>Firebase Hosting</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Engineering</h3>
+          <ul>
+            <li>Python, Pydantic, FastAPI</li>
+            <li>Docker, Git</li>
+            <li>CI/CD (GitHub Actions)</li>
+            <li>REST &amp; streaming APIs (SSE)</li>
+            <li>React / TypeScript, Tailwind CSS</li>
           </ul>
         </div>
       </div>
